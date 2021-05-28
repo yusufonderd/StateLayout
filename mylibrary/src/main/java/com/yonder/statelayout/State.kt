@@ -1,4 +1,4 @@
-package com.yonder.statelayoutlib
+package com.yonder.statelayout
 
 /**
  * @author: yusufonder

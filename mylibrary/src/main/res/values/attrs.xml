@@ -2,9 +2,23 @@
 <resources>
 
     <declare-styleable name="ErrorStateLayoutView">
+
+      <!-- State Error Case -->
       <attr name="textErrorTitle" format="string" />
       <attr name="textErrorDetail" format="string" />
-      <attr name="textButtonTryAgain" format="string" />
+      <attr name="textErrorButtonTryAgain" format="string" />
+      <attr name="errorDrawable" format="reference" />
+
+      <!-- State Loading Case -->
+      <attr name="textLoading" format="string" />
+
+      <!-- State Empty Case -->
+      <attr name="textEmpty" format="string" />
+      <attr name="emptyIconDrawable" format="reference" />
+
+      <!-- Spacing between state layout views -->
+      <attr name="defaultMargin" format="integer" />
+
     </declare-styleable>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.yonder.statelayoutlib.constraints
+package com.yonder.statelayout.constraints
 
 import androidx.constraintlayout.widget.ConstraintSet
 
@@ -8,7 +8,7 @@ import androidx.constraintlayout.widget.ConstraintSet.TOP
 import androidx.constraintlayout.widget.ConstraintSet.START
 import androidx.constraintlayout.widget.ConstraintSet.END
 import androidx.constraintlayout.widget.ConstraintSet.PARENT_ID
-import com.yonder.statelayoutlib.StateLayoutView
+import com.yonder.statelayout.StateLayoutView
 
 /**
  * @author: yusufonder

@@ -1,7 +1,7 @@
-package com.yonder.statelayoutlib.constraints
+package com.yonder.statelayout.constraints
 
 import androidx.constraintlayout.widget.ConstraintSet
-import com.yonder.statelayoutlib.StateLayoutView
+import com.yonder.statelayout.StateLayoutView
 
 /**
  * @author: yusufonder

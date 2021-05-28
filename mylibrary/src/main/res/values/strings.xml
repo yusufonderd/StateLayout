@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <string name="title_btn_try_again">Try Again</string>
+  <!-- State Error Case -->
+  <string name="title_error_btn_try_again">Try Again</string>
   <string name="title_error_title">An error occurred</string>
   <string name="title_error_detail">Please try again later</string>
+
+  <!-- State Loading Case -->
+  <string name="title_loading">Please waiting…</string>
+
+  <!-- State Empty Case -->
+  <string name="title_empty">No items found</string>
 
 
 </resources>

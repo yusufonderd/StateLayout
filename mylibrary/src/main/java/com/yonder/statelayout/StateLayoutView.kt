@@ -1,4 +1,4 @@
-package com.yonder.statelayoutlib
+package com.yonder.statelayout
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -13,16 +13,17 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import androidx.core.view.isVisible
+import androidx.core.widget.TextViewCompat
 import com.yonder.errorstatelayout.R
-import com.yonder.statelayoutlib.constraints.setBtnErrorTryAgainLocation
-import com.yonder.statelayoutlib.constraints.setIvEmpty
-import com.yonder.statelayoutlib.constraints.setIvErrorLocation
-import com.yonder.statelayoutlib.constraints.setPbLoading
-import com.yonder.statelayoutlib.constraints.setTvEmpty
-import com.yonder.statelayoutlib.constraints.setTvErrorDetailLocation
-import com.yonder.statelayoutlib.constraints.setTvErrorTitleLocation
-import com.yonder.statelayoutlib.constraints.setTvLoading
-import com.yonder.statelayoutlib.utils.toPx
+import com.yonder.statelayout.constraints.setBtnErrorTryAgainLocation
+import com.yonder.statelayout.constraints.setIvEmpty
+import com.yonder.statelayout.constraints.setIvErrorLocation
+import com.yonder.statelayout.constraints.setPbLoading
+import com.yonder.statelayout.constraints.setTvEmpty
+import com.yonder.statelayout.constraints.setTvErrorDetailLocation
+import com.yonder.statelayout.constraints.setTvErrorTitleLocation
+import com.yonder.statelayout.constraints.setTvLoading
+import com.yonder.statelayout.utils.toPx
 
 /**
  * @author: yusufonder
@@ -72,8 +73,11 @@ class StateLayoutView @JvmOverloads constructor(
           ?: context.getString(R.string.title_error_detail)
         textErrorBtnTryAgain = getString(R.styleable.ErrorStateLayoutView_textErrorButtonTryAgain)
           ?: context.getString(R.string.title_error_btn_try_again)
-        errorDrawable = getDrawable(R.styleable.ErrorStateLayoutView_errorDrawable) ?:
-            ContextCompat.getDrawable(context,R.drawable.ic_round_error_72)
+        errorDrawable =
+          getDrawable(R.styleable.ErrorStateLayoutView_errorDrawable) ?: ContextCompat.getDrawable(
+            context,
+            R.drawable.ic_round_error_72
+          )
 
         //State.Loading case
         textLoading = getString(R.styleable.ErrorStateLayoutView_textLoading)
@@ -83,8 +87,8 @@ class StateLayoutView @JvmOverloads constructor(
         //State.Empty case
         textEmpty = getString(R.styleable.ErrorStateLayoutView_textEmpty)
           ?: context.getString(R.string.title_empty)
-        emptyIconDrawable = getDrawable(R.styleable.ErrorStateLayoutView_emptyIconDrawable) ?:
-        ContextCompat.getDrawable(context,R.drawable.ic_baseline_inbox_72)
+        emptyIconDrawable = getDrawable(R.styleable.ErrorStateLayoutView_emptyIconDrawable)
+          ?: ContextCompat.getDrawable(context, R.drawable.ic_baseline_inbox_72)
 
         defaultMargin =
           getInteger(R.styleable.ErrorStateLayoutView_defaultMargin, DEFAULT_MARGIN).toPx.toInt()
@@ -108,6 +112,7 @@ class StateLayoutView @JvmOverloads constructor(
     TextView(context).apply {
       id = generateViewId()
       text = textErrorTitle
+      TextViewCompat.setTextAppearance(this, R.style.ErrorTitleTextAppearance)
       stateLayoutViewIds.add(id)
     }
   }

@@ -1,4 +1,4 @@
-package com.yonder.statelayoutlib.utils
+package com.yonder.statelayout.utils
 
 import android.content.res.Resources
 import android.util.TypedValue
