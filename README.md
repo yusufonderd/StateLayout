@@ -28,7 +28,7 @@
     app:textLoading = ""
     app:textEmpty = ""
     app:emptyIconDrawable = ""
-    app:defaultMargin = "">
+    app:defaultMargin = ""/>
 ```
 
 
