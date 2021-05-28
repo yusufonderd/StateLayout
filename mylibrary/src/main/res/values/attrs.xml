@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ErrorStateLayoutView">
+      <attr name="textErrorTitle" format="string" />
+      <attr name="textErrorDetail" format="string" />
+      <attr name="textButtonTryAgain" format="string" />
+    </declare-styleable>
+
+</resources>
