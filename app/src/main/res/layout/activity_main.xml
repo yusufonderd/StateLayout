@@ -4,7 +4,49 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".MainActivity">
+  tools:context="com.yonder.statelayoutsample.MainActivity">
+
+
+  <Button
+    android:id="@+id/btnShowError"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/btn_show_error"
+    app:layout_constraintEnd_toStartOf="@+id/btnShowLoading"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <Button
+    android:id="@+id/btnShowLoading"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/btn_show_loading"
+    app:layout_constraintEnd_toStartOf="@+id/btnContent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/btnShowError"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <Button
+    android:id="@+id/btnContent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/btn_content"
+    app:layout_constraintEnd_toStartOf="@+id/btnEmpty"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/btnShowLoading"
+    app:layout_constraintTop_toTopOf="parent" />
+
+
+  <Button
+    android:id="@+id/btnEmpty"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/btn_empty"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/btnContent"
+    app:layout_constraintTop_toTopOf="parent" />
 
 
   <com.yonder.statelayout.StateLayoutView
@@ -14,16 +56,14 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:textButtonTryAgain="@string/title_btn_try_again"
-    app:textErrorDetail="@string/title_error_detail"
-    app:textErrorTitle="@string/title_error_title">
 
-    <Button
-      android:id="@+id/btnShowError"
+    app:layout_constraintTop_toBottomOf="@id/btnShowError"
+    app:emptyIconDrawable="@drawable/ic_baseline_highlight_24">
+
+    <TextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/app_name"
+      android:text="@string/title_content"
       android:textAppearance="?textAppearanceHeadline4"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"

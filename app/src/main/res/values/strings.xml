@@ -1,8 +1,17 @@
 <resources>
-  <string name="app_name">My Application</string>
+  <string name="app_name">State Layout Sample</string>
 
-  <string name="title_btn_try_again">Try Again</string>
+  <string name="title_error_btn_try_again">Try Again</string>
   <string name="title_error_title">An error occurred</string>
   <string name="title_error_detail">Please try again later</string>
+
+  <string name="btn_show_error">Error</string>
+  <string name="btn_show_loading">Loading</string>
+  <string name="btn_content">Content</string>
+  <string name="btn_empty">Empty</string>
+
+
+  <string name="title_content">Your content</string>
+
 
 </resources>

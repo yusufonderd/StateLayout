@@ -1,4 +1,4 @@
-package com.yonder.statelayoutlib
+package com.yonder.statelayout
 
 import org.junit.Test
 

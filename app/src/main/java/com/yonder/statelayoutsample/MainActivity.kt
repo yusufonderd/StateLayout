@@ -1,9 +1,12 @@
-package com.yonder.statelayoutlib
+package com.yonder.statelayoutsample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.yonder.statelayout.State
+import com.yonder.statelayout.StateLayoutListener
+import com.yonder.statelayout.StateLayoutView
 
 class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this@MainActivity, "Clicked try again button", Toast.LENGTH_LONG).show()
       }
     })
-
 
     findViewById<Button>(R.id.btnShowError).setOnClickListener {
       stateLayoutView.setState(State.ERROR)
