@@ -3,7 +3,6 @@ package com.yonder.statelayout
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -222,7 +221,6 @@ class StateLayoutView @JvmOverloads constructor(
   }
 
   fun setState(state: State) {
-    Log.i("tag", "children => $childCount ${children.count()} ")
     if (currentState != state) {
       currentState = state
       isAddedViews = false
