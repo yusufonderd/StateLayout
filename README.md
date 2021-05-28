@@ -15,6 +15,22 @@
 
 ```
 
+* Customize if you need
+```xml
+ <com.yonder.statelayout.StateLayoutView
+    android:id="@+id/errorStateLayoutView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:errorDrawable=""
+    app:textErrorButtonTryAgain=""
+    app:textErrorDetail=""
+    app:textErrorTitle=""
+    app:textLoading = ""
+    app:textEmpty = ""
+    app:emptyIconDrawable = ""
+    app:defaultMargin = "">
+```
+
 
 ## Setup
 ```gradle
