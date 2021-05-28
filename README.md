@@ -1,7 +1,7 @@
 # StateLayout
 
 ## GIF
-<img src="https://github.com/yusufonderd/StateLayout/blob/master/art/sample.gif" width="400" height="710" />
+<img src="https://github.com/yusufonderd/StateLayout/blob/master/art/sample.gif" width="360" height="720" />
 
 ## Usage
 * Add state layout to outside of your main content
