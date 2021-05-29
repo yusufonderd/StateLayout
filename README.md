@@ -31,10 +31,6 @@
     app:textEmpty= ""
     app:emptyIconDrawable= ""
     app:defaultMargin= "">
-
-    <-- Your main content --> 
-
- </com.yonder.statelayout.StateLayoutView>
 ```
 
 
