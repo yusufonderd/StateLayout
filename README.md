@@ -27,10 +27,10 @@
     app:textErrorButtonTryAgain=""
     app:textErrorDetail=""
     app:textErrorTitle=""
-    app:textLoading = ""
-    app:textEmpty = ""
-    app:emptyIconDrawable = ""
-    app:defaultMargin = "">
+    app:textLoading= ""
+    app:textEmpty= ""
+    app:emptyIconDrawable= ""
+    app:defaultMargin= "">
 
     <-- Your main content --> 
 
