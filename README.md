@@ -23,6 +23,7 @@
     android:id="@+id/errorStateLayoutView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:loadingGravity="top"
     app:errorDrawable="@drawable/ic_error_outline_24"
     app:textErrorButtonTryAgain="@string/title_btn_try_again"
     app:textErrorDetail="@string/title_error_detail"
