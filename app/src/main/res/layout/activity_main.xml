@@ -53,12 +53,11 @@
     android:id="@+id/errorStateLayoutView"
     android:layout_width="0dp"
     android:layout_height="0dp"
+    app:loadingGravity="top"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
-
-    app:layout_constraintTop_toBottomOf="@id/btnShowError"
-    app:emptyIconDrawable="@drawable/ic_baseline_highlight_24">
+    app:layout_constraintTop_toBottomOf="@id/btnShowError">
 
     <TextView
       android:layout_width="wrap_content"

@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
       stateLayoutView.setState(State.EMPTY)
     }
 
-
     stateLayoutView.setState(State.LOADING)
 
   }
