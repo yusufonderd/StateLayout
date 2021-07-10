@@ -11,6 +11,11 @@
 
       <!-- State Loading Case -->
       <attr name="textLoading" format="string" />
+      <attr name="loadingGravity" format="enum">
+        <enum name="center" value="0"/>
+        <enum name="top" value="1"/>
+        <enum name="bottom" value="2"/>
+      </attr>
 
       <!-- State Empty Case -->
       <attr name="textEmpty" format="string" />

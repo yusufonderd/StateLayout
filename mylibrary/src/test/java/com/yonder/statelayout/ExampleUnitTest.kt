@@ -1,4 +1,4 @@
-package com.yonder.errorstatelayout
+package com.yonder.statelayout
 
 import org.junit.Test
 

@@ -3,10 +3,12 @@ package com.yonder.statelayout
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.annotation.VisibleForTesting
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
@@ -39,21 +41,21 @@ class StateLayoutView @JvmOverloads constructor(
 
   private var currentState: State = State.CONTENT
 
-  // State.ERROR case
+  // State Error case
   private var textErrorTitle: String
   private var textErrorDetail: String
   private var textErrorBtnTryAgain: String
   private var errorDrawable: Drawable?
 
-
-  // State.LOADING case
+  // State Loading case
   private var textLoading: String
+  internal var loadingGravity: LoadingGravity = LoadingGravity.TOP
+
   private var isAddedViews: Boolean = false
 
-  // State.EMPTY case
+  // State Empty case
   private var textEmpty: String
   private var emptyIconDrawable: Drawable?
-
 
   //Spacing between views
   internal var defaultMargin: Int
@@ -65,7 +67,7 @@ class StateLayoutView @JvmOverloads constructor(
     context.theme.obtainStyledAttributes(attrs, R.styleable.ErrorStateLayoutView, 0, 0).apply {
       try {
 
-        //State.ERROR case
+        //State.Error case
         textErrorTitle = getString(R.styleable.ErrorStateLayoutView_textErrorTitle)
           ?: context.getString(R.string.title_error_title)
         textErrorDetail = getString(R.styleable.ErrorStateLayoutView_textErrorDetail)
@@ -81,7 +83,7 @@ class StateLayoutView @JvmOverloads constructor(
         //State.Loading case
         textLoading = getString(R.styleable.ErrorStateLayoutView_textLoading)
           ?: context.getString(R.string.title_loading)
-
+        loadingGravity = LoadingGravity.find(getInt(R.styleable.ErrorStateLayoutView_loadingGravity, LoadingGravity.CENTER.value))
 
         //State.Empty case
         textEmpty = getString(R.styleable.ErrorStateLayoutView_textEmpty)
@@ -133,7 +135,7 @@ class StateLayoutView @JvmOverloads constructor(
     }
   }
 
-  //State.LOADING View Components
+  //State Loading View Components
   override val pbLoading: ProgressBar by lazy {
     ProgressBar(context).apply {
       id = generateViewId()
@@ -149,7 +151,7 @@ class StateLayoutView @JvmOverloads constructor(
     }
   }
 
-  //State.EMPTY View Components
+  //State Empty View Components
   override val tvEmptyTitle: TextView by lazy {
     TextView(context).apply {
       id = generateViewId()
@@ -157,6 +159,7 @@ class StateLayoutView @JvmOverloads constructor(
       stateLayoutViewIds.add(id)
     }
   }
+
   override val ivEmpty: ImageView by lazy {
     ImageView(context).apply {
       id = generateViewId()
@@ -169,9 +172,9 @@ class StateLayoutView @JvmOverloads constructor(
     tryAgainClickListener = listener
   }
 
-  private fun generateUndefinedViewIds() {
-    for (i in 0 until childCount) {
-      val subView = getChildAt(i)
+  @VisibleForTesting
+  fun generateUndefinedViewIds(children: Sequence<View>) {
+    children.forEach { subView ->
       if (subView.id == UNDEFINED_VIEW_ID) {
         subView.id = generateViewId()
       }
@@ -179,7 +182,7 @@ class StateLayoutView @JvmOverloads constructor(
   }
 
   private fun initStateLayoutViews() {
-    generateUndefinedViewIds()
+    generateUndefinedViewIds(children)
     addViews(isAddedViews)
     connectViews(currentState)
     setVisibilityOfContents()
@@ -230,7 +233,8 @@ class StateLayoutView @JvmOverloads constructor(
 
   }
 
-  private fun removeStateLayoutViews() {
+  @VisibleForTesting
+  fun removeStateLayoutViews() {
     stateLayoutViewIds.forEach { viewId ->
       removeView(findViewById(viewId))
     }

@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintSet.TOP
 import androidx.constraintlayout.widget.ConstraintSet.START
 import androidx.constraintlayout.widget.ConstraintSet.END
 import androidx.constraintlayout.widget.ConstraintSet.PARENT_ID
+import com.yonder.statelayout.LoadingGravity
 
 /**
  * @author: yusufonder
@@ -19,9 +20,20 @@ internal fun <T : ConstraintSet> StateLayoutView.setPbLoading(constraint: T) {
     with(pbLoading.id) {
       connect(this, START, PARENT_ID, START)
       connect(this, END, PARENT_ID, END)
-      connect(this, TOP, PARENT_ID, TOP)
       connect(this, BOTTOM, tvLoading.id, TOP, defaultMargin)
-      setVerticalChainStyle(this, CHAIN_PACKED)
+
+      when (loadingGravity) {
+        LoadingGravity.CENTER -> {
+          connect(this, TOP, PARENT_ID, TOP)
+          setVerticalChainStyle(this, CHAIN_PACKED)
+        }
+        LoadingGravity.TOP -> {
+          connect(this, TOP, PARENT_ID, TOP, defaultMargin)
+        }
+        LoadingGravity.BOTTOM -> {
+          connect(this, BOTTOM, tvLoading.id, TOP)
+        }
+      }
     }
   }
 }
@@ -32,9 +44,21 @@ internal fun <T : ConstraintSet> StateLayoutView.setTvLoading(constraint: T) {
     with(pbLoading.id) {
       connect(startId, START, this, START)
       connect(startId, END, this, END)
-      connect(startId, TOP, this, BOTTOM)
     }
-    connect(startId, BOTTOM, PARENT_ID, BOTTOM)
+    when (loadingGravity) {
+      LoadingGravity.CENTER -> {
+        connect(startId, TOP, pbLoading.id, BOTTOM)
+        connect(startId, BOTTOM, PARENT_ID, BOTTOM)
+      }
+      LoadingGravity.BOTTOM -> {
+        connect(startId, BOTTOM, PARENT_ID, BOTTOM, defaultMargin)
+      }
+      LoadingGravity.TOP -> {
+        connect(startId, TOP, pbLoading.id, BOTTOM, defaultMargin)
+      }
+
+    }
+
   }
 }
 
