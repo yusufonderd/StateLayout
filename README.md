@@ -7,7 +7,7 @@
 * Add state layout to outside of your main content
 ```xml
 <com.yonder.statelayout.StateLayoutView
-    android:id="@+id/errorStateLayoutView"
+    android:id="@+id/stateLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,6 +15,14 @@
 
  </com.yonder.statelayout.StateLayoutView>
 
+```
+
+#### Code:
+```kotlin
+    stateLayout.setState(State.LOADING)
+    stateLayout.setState(State.EMPTY)
+    stateLayout.setState(State.ERROR) 
+    stateLayout.setState(State.CONTENT)
 ```
 
 * Customize if you need
